@@ -33,6 +33,6 @@ if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
     endif()
 endif()
 # CHECK ALL THE SUBMODULES  检查子模块
-if(NOT EXISTS "${PROJECT_SOURCE_DIR}/thirdParty/glfw/CMakeLists.txt")
+if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/glfw/CMakeLists.txt")
     message(FATAL_ERROR "the glfw submodules was not downloaded!")
 endif()
