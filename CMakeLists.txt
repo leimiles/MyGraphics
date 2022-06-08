@@ -10,13 +10,18 @@ set(EXE_NAME myGraphic)                     # set program name
 add_executable(${EXE_NAME} main.cpp)        # build an exe file
 
 add_subdirectory(src)                       # build subdirectory
-target_link_libraries(${EXE_NAME} myLib)    # link library
+add_subdirectory(3rd/glfw)
+target_link_libraries(
+    ${EXE_NAME}
+        myLib
+        glfw
+)    # link library
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
-# "$ git submodule add https://github.com/glfw/glfw.git thirdParty/glfw" this is the example about how you kan add submodule
+# "$ git submodule add https://github.com/glfw/glfw.git 3rd/glfw" this is the example about how you kan add submodule
 
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
