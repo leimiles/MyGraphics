@@ -2,6 +2,7 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "util.h"
+#include "renderPipeline.h"
 
 int main(int argc, char* argv[])
 {
@@ -22,8 +23,11 @@ int main(int argc, char* argv[])
         return -1;
     }
 
+    renderPipeline mrp;
+
     while (!glfwWindowShouldClose(window))
     {
+        mrp.clearTarget();
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
