@@ -10,4 +10,9 @@ target_include_directories(myLib            # set lib include files
 )
 
 
+target_compile_features(myLib               # enable c++17 feature
+    PUBLIC
+        cxx_std_17
+)
+
 

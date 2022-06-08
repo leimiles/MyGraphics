@@ -16,8 +16,23 @@ set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
+# "$ git submodule add https://github.com/glfw/glfw.git thirdParty/glfw" this is the example about how you kan add submodule
 
-target_compile_features(${EXE_NAME}         # enable c++17 feature
-    PUBLIC
-        cxx_std_17
-)
+find_package(Git QUIET)
+if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
+# Update submodules as needed   更新子模块
+    option(GIT_SUBMODULE "Check submodules during build" ON)
+    if(GIT_SUBMODULE)
+        message(STATUS "Submodule update")
+        execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
+                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                    RESULT_VARIABLE GIT_SUBMOD_RESULT)
+        if(NOT GIT_SUBMOD_RESULT EQUAL "0")
+            message(FATAL_ERROR "git submodule update --init failed with ${GIT_SUBMODE_RESULT}, please check")
+        endif()
+    endif()
+endif()
+# CHECK ALL THE SUBMODULES  检查子模块
+if(NOT EXISTS "${PROJECT_SOURCE_DIR}/thirdParty/glfw/CMakeLists.txt")
+    message(FATAL_ERROR "the glfw submodules was not downloaded!")
+endif()
