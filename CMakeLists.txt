@@ -38,6 +38,7 @@ if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
         endif()
     endif()
 endif()
+
 # CHECK ALL THE SUBMODULES  检查子模块
 # "$ git submodule add https://github.com/glfw/glfw.git 3rd/glfw" this is the example about how you kan add submodule
 if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/glfw/CMakeLists.txt")
