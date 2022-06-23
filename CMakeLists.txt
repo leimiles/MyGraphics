@@ -50,5 +50,9 @@ if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/glad/CMakeLists.txt")
 endif()
 
 if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/imgui/imgui.h")
-    message(FATAL_ERROR "the glad submodules was not downloaded!")
+    message(FATAL_ERROR "the imgui submodules was not downloaded!")
+endif()
+
+if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/glm/CMakeLists.txt")
+    message(FATAL_ERROR "the glm submodules was not downloaded!")
 endif()
