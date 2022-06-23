@@ -4,12 +4,12 @@ project(MyGraphics VERSION 0.1.0)           # project version
 include(CTest)
 enable_testing()
 
-set(EXE_NAME myGraphic)                     # set program name
+set(EXE_NAME myGraphic) # set program name
 
 
-add_executable(${EXE_NAME} main.cpp)        # build an exe file
+add_executable(${EXE_NAME} main.cpp)    # build an exe file
 
-add_subdirectory(src)                       # build subdirectory
+add_subdirectory(src)   # build subdirectory
 add_subdirectory(3rd/glfw)
 add_subdirectory(3rd/glad)
 
@@ -18,7 +18,7 @@ target_link_libraries(
         myLib
         glfw
         glad
-)    # link library
+)   # link library
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
@@ -46,5 +46,9 @@ if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/glfw/CMakeLists.txt")
 endif()
 
 if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/glad/CMakeLists.txt")
+    message(FATAL_ERROR "the glad submodules was not downloaded!")
+endif()
+
+if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd/imgui/imgui.h")
     message(FATAL_ERROR "the glad submodules was not downloaded!")
 endif()
