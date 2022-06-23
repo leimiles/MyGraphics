@@ -7,6 +7,7 @@ set(IMGUI_HEADER_DIR
 set(IMGUI_SOURCE_DIR
     ${PROJECT_SOURCE_DIR}/3rd/imgui/imgui.cpp
     ${PROJECT_SOURCE_DIR}/3rd/imgui/imgui_draw.cpp
+    ${PROJECT_SOURCE_DIR}/3rd/imgui/imgui_demo.cpp
     ${PROJECT_SOURCE_DIR}/3rd/imgui/imgui_widgets.cpp
     ${PROJECT_SOURCE_DIR}/3rd/imgui/imgui_tables.cpp
     ${PROJECT_SOURCE_DIR}/3rd/imgui/backends/imgui_impl_glfw.cpp
@@ -15,6 +16,10 @@ set(IMGUI_SOURCE_DIR
 
 set(GLFW_HEADER_DIR
     ${PROJECT_SOURCE_DIR}/3rd/glfw/include
+)
+
+set(GLM_HEADER_DIR
+    ${PROJECT_SOURCE_DIR}/3rd/glm
 )
 
 
@@ -31,6 +36,7 @@ target_include_directories(myLib
         ${IMGUI_HEADER_DIR}
         ${GLFW_HEADER_DIR}
         ${GLAD_OUT_DIR}/include
+        ${GLM_HEADER_DIR}
 )   # set lib include files
 
 
