@@ -11,9 +11,9 @@ public:
     renderPipeline(/* args */);
     ~renderPipeline();
     void clearTarget();
-    void ImGuiDemo();
-    static void prepareImGuiContext(GLFWwindow* window);
-    static void releaseImGuiContext();
+    void debug(const char* info);
+    static void prepareUIContext(GLFWwindow* window);
+    static void releaseUIContext();
 };
 
 #endif

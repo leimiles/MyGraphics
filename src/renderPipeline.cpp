@@ -17,7 +17,7 @@ void renderPipeline::clearTarget()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void renderPipeline::prepareImGuiContext(GLFWwindow* window)
+void renderPipeline::prepareUIContext(GLFWwindow* window)
 {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -26,18 +26,18 @@ void renderPipeline::prepareImGuiContext(GLFWwindow* window)
     ImGui::StyleColorsClassic();
 }
 
-void renderPipeline::ImGuiDemo()
+void renderPipeline::debug(const char* info)
 {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    ImGui::Text("This is imgui Info");
+    ImGui::Text(info);
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-void renderPipeline::releaseImGuiContext()
+void renderPipeline::releaseUIContext()
 {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();

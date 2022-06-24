@@ -1,6 +1,4 @@
 #include <iostream>
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
 #include "util.h"
 #include "renderPipeline.h"
 
@@ -8,14 +6,17 @@ int main(int argc, char* argv[])
 {
     util::hideConsole();
     glfwInit();
-    GLFWwindow* window = glfwCreateWindow(800, 600, "MyGraphics_OpenGL", NULL, NULL);
-    if (window == NULL)
+    GLFWwindow* window = glfwCreateWindow(800, 600, "MyGraphics_OpenGL", nullptr, nullptr);
+    if (!window)
     {
         glfwTerminate();
+        throw std::runtime_error("Error creating glfw window");
         return -1;
     }
 
     glfwMakeContextCurrent(window);
+    // enable v-sync
+    glfwSwapInterval(1);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -23,18 +24,18 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    renderPipeline::prepareImGuiContext(window);
+    renderPipeline::prepareUIContext(window);
     renderPipeline mrp;
 
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
         mrp.clearTarget();
-        mrp.ImGuiDemo();
+        mrp.debug("this is debug info.");
         glfwSwapBuffers(window);
     }
 
-    renderPipeline::releaseImGuiContext();
+    renderPipeline::releaseUIContext();
 
     glfwDestroyWindow(window);
     glfwTerminate();
