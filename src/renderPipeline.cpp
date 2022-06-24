@@ -2,6 +2,7 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "geometryData.h"
 
 renderPipeline::renderPipeline(/* args */)
 {
@@ -26,13 +27,13 @@ void renderPipeline::prepareUIContext(GLFWwindow* window)
     ImGui::StyleColorsClassic();
 }
 
-void renderPipeline::debug(const char* info)
+void renderPipeline::debug(std::string info)
 {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    ImGui::Text(info);
+    ImGui::Text(info.c_str());
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }

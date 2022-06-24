@@ -27,6 +27,7 @@ add_library(myLib
     light.cpp
     util.cpp
     renderPipeline.cpp
+    geometryData.cpp
     ${IMGUI_SOURCE_DIR}
 )   # build a lib
 

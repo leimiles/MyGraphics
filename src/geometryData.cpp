@@ -1,0 +1,8 @@
+#include "geometryData.h"
+
+const float* geometryData::triangleDemo_NDC = new float[9]
+{
+    -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f
+};
