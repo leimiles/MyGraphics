@@ -6,18 +6,17 @@ enable_testing()
 
 set(EXE_NAME myGraphic) # set program name
 
-
 add_executable(${EXE_NAME} main.cpp)    # build an exe file
 
-add_subdirectory(src)   # build subdirectory
 add_subdirectory(3rd/glfw)
 add_subdirectory(3rd/glad)
+add_subdirectory(src)   # build subdirectory
 
 target_link_libraries(
     ${EXE_NAME}
-        myLib
         glfw
         glad
+        myLib
 )   # link library
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

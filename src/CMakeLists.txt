@@ -4,6 +4,7 @@ set(IMGUI_HEADER_DIR
     ${PROJECT_SOURCE_DIR}/3rd/imgui
     ${PROJECT_SOURCE_DIR}/3rd/imgui/backends
 )   # set imgui header path
+
 set(IMGUI_SOURCE_DIR
     ${PROJECT_SOURCE_DIR}/3rd/imgui/imgui.cpp
     ${PROJECT_SOURCE_DIR}/3rd/imgui/imgui_draw.cpp
@@ -22,7 +23,6 @@ set(GLM_HEADER_DIR
     ${PROJECT_SOURCE_DIR}/3rd/glm
 )
 
-
 add_library(myLib
     light.cpp
     util.cpp
@@ -39,11 +39,7 @@ target_include_directories(myLib
         ${GLM_HEADER_DIR}
 )   # set lib include files
 
-
 target_compile_features(myLib
     PUBLIC
         cxx_std_17
 )   # enable c++17 feature
-
-
-#F:\Projects\Other\MyGraphics\3rd\imgui\backends\imgui_impl_glfw.cpp
