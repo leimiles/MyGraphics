@@ -9,19 +9,15 @@ int main(int argc, char* argv[])
     GLFWwindow* window = glfwCreateWindow(800, 600, "MyGraphics_OpenGL", nullptr, nullptr);
     if (!window)
     {
-        glfwTerminate();
         throw std::runtime_error("Error creating glfw window");
-        return -1;
     }
 
     glfwMakeContextCurrent(window);
-    // enable v-sync
-    glfwSwapInterval(1);
+    glfwSwapInterval(1);    // enable v-sync
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        std::cout << "Failed to init GLAD." << std::endl;
-        return -1;
+        throw std::runtime_error("Error creating glad loader");
     }
 
     renderPipeline::prepareUIContext(window);
