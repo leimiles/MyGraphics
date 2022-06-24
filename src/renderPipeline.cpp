@@ -18,12 +18,12 @@ void renderPipeline::clearTarget()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void renderPipeline::prepareUIContext(GLFWwindow* window)
+void renderPipeline::prepareUIContext(GLFWwindow* window, std::string glVersion)
 {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("#version 450 core");
+    ImGui_ImplOpenGL3_Init("#version 460 core");
     ImGui::StyleColorsClassic();
 }
 

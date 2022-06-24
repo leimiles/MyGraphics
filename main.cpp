@@ -5,7 +5,12 @@
 int main(int argc, char* argv[])
 {
     util::hideConsole();
+
     glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
     GLFWwindow* window = glfwCreateWindow(800, 600, "MyGraphics_OpenGL", nullptr, nullptr);
     if (!window)
     {
@@ -20,7 +25,7 @@ int main(int argc, char* argv[])
         throw std::runtime_error("Error creating glad loader");
     }
 
-    renderPipeline::prepareUIContext(window);
+    renderPipeline::prepareUIContext(window, "#version 460 core");
     renderPipeline mrp;
 
     while (!glfwWindowShouldClose(window))

@@ -14,7 +14,7 @@ public:
     void clearTarget();
     void debug(std::string info);
     void renderLoop();
-    static void prepareUIContext(GLFWwindow* window);
+    static void prepareUIContext(GLFWwindow* window, std::string glVersion);
     static void releaseUIContext();
 };
 
