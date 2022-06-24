@@ -44,3 +44,9 @@ void renderPipeline::releaseUIContext()
     ImGui::DestroyContext();
 }
 
+void renderPipeline::renderLoop()
+{
+    clearTarget();
+    debug("this is the debug info.");
+}
+

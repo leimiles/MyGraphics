@@ -26,8 +26,7 @@ int main(int argc, char* argv[])
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
-        mrp.clearTarget();
-        mrp.debug("this is debug info.");
+        mrp.renderLoop();
         glfwSwapBuffers(window);
     }
 

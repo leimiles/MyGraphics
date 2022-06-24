@@ -12,6 +12,7 @@ public:
     ~renderPipeline();
     void clearTarget();
     void debug(const char* info);
+    void renderLoop();
     static void prepareUIContext(GLFWwindow* window);
     static void releaseUIContext();
 };
