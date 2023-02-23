@@ -28,6 +28,7 @@ add_library(myLib
     util.cpp
     renderPipeline.cpp
     geometryData.cpp
+    shader.cpp
     ${IMGUI_SOURCE_DIR}
 )   # build a lib
 
